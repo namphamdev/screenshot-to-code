@@ -22,5 +22,9 @@ COPY ./backend /app/
 
 ARG OPENAI_API_KEY=${OPENAI_API_KEY}
 
+EXPOSE 7000
+
+COPY ./backend/entrypoint.sh /
+
 ENTRYPOINT ["sh", "/entrypoint.sh"]
 
