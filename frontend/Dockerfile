@@ -4,13 +4,13 @@ FROM node:20.9-bullseye-slim
 WORKDIR /app
 
 # Copy package.json and yarn.lock
-COPY package.json yarn.lock /app/
+COPY ./frontend/package.json ./frontend/yarn.lock /app/
 
 # Install dependencies
 RUN yarn install
 
 # Copy the current directory contents into the container at /app
-COPY ./ /app/
+COPY ./frontend /app/
 
 # Expose port 5173 to access the server
 EXPOSE 5173
