@@ -18,5 +18,5 @@ RUN poetry config virtualenvs.create false
 RUN poetry install
 
 # Copy the current directory contents into the container at /app
-COPY ./ /app/
+COPY ./backend /app/
 RUN poetry run uvicorn main:app --host 0.0.0.0 --port 7001
