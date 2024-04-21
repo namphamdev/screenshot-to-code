@@ -19,6 +19,8 @@ RUN poetry install
 
 # Copy the current directory contents into the container at /app
 COPY ./backend /app/
-# RUN poetry run uvicorn main:app --host 0.0.0.0 --port 7001
-CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "main:app", "--bind", "0.0.0.0:8000"]
+
+ARG OPENAI_API_KEY=${OPENAI_API_KEY}
+
+ENTRYPOINT ["sh", "/entrypoint.sh"]
 
