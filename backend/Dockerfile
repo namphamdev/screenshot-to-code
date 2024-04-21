@@ -9,7 +9,7 @@ RUN pip install "poetry==$POETRY_VERSION"
 WORKDIR /app
 
 # Copy only requirements to cache them in docker layer
-COPY poetry.lock pyproject.toml /app/
+COPY ./backend/poetry.lock ./backend/pyproject.toml /app/
 
 # Disable the creation of virtual environments
 RUN poetry config virtualenvs.create false
